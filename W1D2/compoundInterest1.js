@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 /*
 Quesion 2. Compound Interest
 
@@ -6,7 +6,13 @@ Input :     initial amount, annual interest rate, number of years to compund
 Processing: multiply the inital amount,anual interest, and years to compund and divided by 12 months. 
 Output:     monthly compound interest
 */
-
+/**
+ * 
+ * @param {Number} initialAmount the first number.
+ * @param {Number} interestRate the second number. 
+ * @param {Number} yearsNumber the third number.
+ * @returns {Number} balcance.
+ */
 function compoundInterst(initialAmount, interestRate , yearsNumber){
     const monthlyRate = (interestRate/12)/100;
     const numberPayment= yearsNumber * 12;
@@ -15,7 +21,7 @@ function compoundInterst(initialAmount, interestRate , yearsNumber){
     for(let i = 1; i <= numberPayment; i++){
         balance = balance + (balance * monthlyRate);
     }
-    return balance;
+    return balance.toFixed(2);
 }
-console.log("expect 110.47",compoundInterst(100,10,1) );
-console.log("expected 16470.09", compoundInterst(10000,5,10))
+console.log("expect 110.47", compoundInterst(100,10,1) );
+console.log("expected 16470.09", compoundInterst(10000,5,10));

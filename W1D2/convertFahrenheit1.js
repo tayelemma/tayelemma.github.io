@@ -1,5 +1,6 @@
 
 "use strict"
+
 /*
 Quesion 5. convert fahrenheit. 
 
@@ -7,9 +8,15 @@ Quesion 5. convert fahrenheit.
    output:     temperature in celcius is an output
    processing: to convert Fahrenheit to Celsius, subtract 32 from the temperature in Fahrenheit and multiply by 5/9
  */
+
+/**
+ * 
+ * @param {int} tempInFahrenheit the first number.
+ * @returns{int} the temprature.
+ */
 function convertFahrenheit(tempInFahrenheit) {
-    const tempInCelsius = 5 / 9 * (parseFloat(tempInFahrenheit) - 32);
-    return tempInCelsius;
+  const tempInCelsius = 5 / 9 * (parseFloat(tempInFahrenheit) - 32);
+  return tempInCelsius;
 }
 console.log("expect 0: ", convertFahrenheit(32));
 console.log("expect -17.7778: ", convertFahrenheit(0));

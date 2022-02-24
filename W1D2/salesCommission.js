@@ -1,3 +1,4 @@
+"use strict";
 /*
 Input:             sales amount; 
 Output:            sales commission. 
@@ -10,7 +11,15 @@ Processing Output: if salesman isSalaried compute, execute if sales amount is le
                     -otherwise sales amount is above $500 compute sales amount * 0.03.
 
 */
+
+
 let isSalaried = true;
+/**
+ * @param{boolean} isSalaried boolean. 
+ * @param{int} salesAmount number. 
+ * @returns {int } number. 
+ *
+ */
 function computeSalesCommission(isSalaried,salesAmount){
     if(isSalaried){
         if(salesAmount < 300){

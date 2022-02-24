@@ -10,6 +10,11 @@ Processing: if the cost of the house is less than 50K execute (0.05 * cost).
             else if cost of the house is greater than or equal 100k and less than or equal to 200k execute (7500 + ( 0.15 * (cost-100000)).
             otherwise execute (20000 + (0.1 * (cost -200000));
 */
+/**
+ * 
+ * @param {int} cost the first number.
+ * @returns {int} the down payment cost. 
+ */
 function calcDownpayment(cost){
     if(cost < 50000){
         return cost * 0.05;
