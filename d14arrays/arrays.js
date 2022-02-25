@@ -93,7 +93,7 @@ function reverseArray(array){
   */
    function reverseArrayInPlace(arr){
     const tempArr = arr.slice(0);
-   for (let i = arr.length-1;i>=0;i--){
+   for (let i = arr.length-1; i>=0; i--){
        arr[i] = tempArr[arr.length-1-i];
    }
 

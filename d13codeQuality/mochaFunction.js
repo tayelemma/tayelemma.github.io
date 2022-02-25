@@ -1,10 +1,10 @@
 "use strict";
 
-module.exports = { isVowel, computeSalesCommission, compoundInterest, calcDistance, sumDigit, multiDigit }
+module.exports = { isVowel, computeSalesCommission, compoundInterest, calcDownpayment, calcDistance, sumDigit, multiDigit };
 
 /**
- * @param {string} letter 
- * return true or false
+ * @param {string} letter String. 
+ * @return {boolean} true or false
  */
 function isVowel(letter) {
     if (letter === "a" || letter === "e" || letter === "i" ||
@@ -15,12 +15,11 @@ function isVowel(letter) {
     }
 }
 
-
 /**
  * 
- * @param {boolean} isSalaried 
- * @param {number} salesAmnt 
- * retrun {number } commission
+ * @param {Boolean} isSalaried check for the salaried.
+ * @param {Number} salesAmnt second parameter is the number.
+ * @returns {Number} number.
  */
 function computeSalesCommission(isSalaried, salesAmnt) {
     let Commission = 0;
@@ -48,15 +47,17 @@ function computeSalesCommission(isSalaried, salesAmnt) {
 
 /**
  * 
- * @param {number} initialAmount 
- * @param {number} interestRate 
- * @param {number} yearsNumber 
+ * @param {Number} initialAmount first number.
+ * @param {Number} interestRate second number. 
+ * @param {Number} yearsNumber third number. 
+ * @returns {Number}total payment. 
  */
-
 function compoundInterest(initialAmount, interestRate, yearsNumber) {
     const MONTHS = 12;
-    let totalPayment = initialAmount * (1 + (interestRate / 100) / MONTHS)**(yearsNumber * MONTHS);
+    let totalPayment = Math.pow(initialAmount * (1 + (interestRate / 100) / MONTHS),(yearsNumber * MONTHS));
     return totalPayment;
+
+
 }
 
 
@@ -64,7 +65,8 @@ function compoundInterest(initialAmount, interestRate, yearsNumber) {
 
 /**
  * 
- * @param {number} cost 
+ * @param {number} cost  number. 
+ * @returns {Number}number. 
  */
 function calcDownpayment(cost) {
     let downPayment;
@@ -84,10 +86,11 @@ function calcDownpayment(cost) {
 
 /**
  * 
- * @param {number} x1 
- * @param {number} y1 
- * @param {number} x2 
- * @param {number} y2 
+ * @param {number} x1 first number.
+ * @param {number} y1 second number. 
+ * @param {number} x2 third number. 
+ * @param {number} y2 fourth number. 
+ * @returns {Number}distance. 
  */
 function calcDistance(x1, y1, x2, y2) {
     let xCor = Math.pow((x2 - x1), 2);
@@ -100,8 +103,8 @@ function calcDistance(x1, y1, x2, y2) {
 
 /**
  * 
- * @param {number} num 
- * return the sum of digits
+ * @param {number} num is number input.
+ * @return {Number}the sum of digits
  */
 function sumDigit(num) {
     let sum = 0;
@@ -116,8 +119,8 @@ function sumDigit(num) {
 
 /**
  * 
- * @param {*number} num 
- * returns the product of digits
+ * @param {number} num input number. 
+ * @returns {Number} the product of digits
  */
 function multiDigit(num) {
     let product = 1;

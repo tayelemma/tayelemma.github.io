@@ -1,8 +1,9 @@
 "use strict";
 
 const assert = require("assert");
-// const { calcDistance } = require("./mochaFunctions.js");
-const functionModules = require("./mochaFunctions.js");
+const { calcDistance } = require("./mochaFunctions.js");
+const myExports = require("./mochaFunctions.js");
+
 
 const isVowel = functionModules.isVowel;
 const compoundInterest = functionModules.compoundInterest;

@@ -16,7 +16,7 @@ Input                                 Defining Table Procesing                  
 */
 const prompt= require("prompt-sync")();
 const K = 1000;
-let costofHouse=prompt("Please enter the coat of the house :")
+let costofHouse=prompt("Please enter the coat of the house :");
 let downPayment;
 
 if(costofHouse>0 && costofHouse<=50*K){
