@@ -13,7 +13,7 @@ function Accumulator(initialValue, increment){
     this.increment = increment;
 
     this.accumulate = function(){
-        this.currentValue =this.currentValue + this.increment;
+        this.currentValue = this.currentValue + this.increment;
         return this.currentValue;
     }
 
@@ -38,8 +38,8 @@ function Accumulator(initialValue, increment){
         return this.a + this.b;    
     },
 
-    this.mul =function(){
-        return this.a*this.b;
+    this.mul = function(){
+        return this.a * this.b;
     }
  }
 

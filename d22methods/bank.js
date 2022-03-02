@@ -12,12 +12,13 @@ The bank object should have a transactionsDB property, which will be an array of
 */
 
 const bank = {
-    transactionsDB: [],
+    transactiodnsDB: [],
 };
 bank.transactionsDB = [
     { customerId: 1, customerTransactions: [10, 50, -40] },
     { customerId: 2, customerTransactions: [10, 10, -10] },
-    { customerId: 3, customerTransactions: [5, -5, 55] }];
+    { customerId: 3, customerTransactions: [5, -5, 55] }
+];
 
 /* this is complete, no need to modify.
 Saves this amount to the customerTransactions array for customerId id. */
@@ -40,7 +41,7 @@ bank.credit = function (id, amount) {
     let balance = this.getBalance(id);
     balance = balance + amount;
     this.saveTransaction(id, amount);
-}
+};
 
 bank.getBalance = function (id) {
     const customer = bank.find(id);
@@ -50,7 +51,7 @@ bank.getBalance = function (id) {
     }
     return currBalance;
 
-}
+};
 
 /**
  * @returns {number} returns sum of all balances
@@ -64,7 +65,7 @@ bank.bankBalance = function () {
         }
     }
     return balance;
-}
+};
 
 bank.find = function (id) {
     let customer = {};
@@ -76,7 +77,7 @@ bank.find = function (id) {
     }
     return customer;
 
-}
+};
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
 /* must be at end of file if are exporting an object so the export is after the definition */
