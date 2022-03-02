@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-   module.exports = { ucFirst, getMaxSubSum, truncate , camelize, checkSpam,extractCurrencyValue}; //add all of your function names here that you need for the node mocha tests
+module.exports = { ucFirst, getMaxSubSum, truncate, camelize, checkSpam, extractCurrencyValue }; //add all of your function names here that you need for the node mocha tests
 
 
 /**
@@ -36,9 +36,9 @@ function checkSpam(str) {
 function truncate(str, maxlength) {
     const ending = "…"
     if (str.length >= maxlength) {
-      return str.slice(0, maxlength - 1) + ending;
+        return str.slice(0, maxlength - 1) + ending;
     } else {
-      return str.slice(0, maxlength + 1)
+        return str.slice(0, maxlength + 1)
     }
 }
 
@@ -84,11 +84,11 @@ function camelize(str) {
     let result = "";
     result = words[0];
     for (let i = 1; i < words.length; i++) {
-      let word = words[i];
-      let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
-      result += capitalizedWord;
+        let word = words[i];
+        let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+        result += capitalizedWord;
     }
-  
+
     return result;
 
 }
