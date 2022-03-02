@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-module.exports = { ucFirst, getMaxSubSum, truncate, camelize, checkSpam, extractCurrencyValue }; //add all of your function names here that you need for the node mocha tests
+//module.exports = { ucFirst, getMaxSubSum, truncate, camelize, checkSpam, extractCurrencyValue }; //add all of your function names here that you need for the node mocha tests
 
 
 /**
