@@ -127,13 +127,13 @@ function scramble() {
         }
     }
 
-    const asc = allWords.sort((aaa, bbb) => aaa.length - bbb.length);
-    let str = asc[0];
-    for (let i = 1; i < asc.length; i++) {
-        if (asc[i - 1].length === asc[i].length) {
-            str += " " + asc[i];
+    const sortword = allWords.sort((arr1, arr2) => arr1.length - arr2.length);
+    let str = sortword[0];
+    for (let i = 1; i < sortword.length; i++) {
+        if (sortword[i - 1].length === sortword[i].length) {
+            str += " " + sortword[i];
         } else {
-            str += "\n" + asc[i];
+            str += "\n" + sortword[i];
         }
     }
     let textArea = document.getElementById("displayScrumble");
