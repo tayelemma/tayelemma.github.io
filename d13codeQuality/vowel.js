@@ -13,6 +13,35 @@ function isVowel(letter) {
         return false;
     }
 }
+/**
+ * 
+ * @param {Function} fun f
+ * @param {number} xxx num
+ * @param {nuber} yyy num
+ * @returns {number}n 
+ */
+function executor (fun, xxx, yyy){
+    return fun(xxx,yyy);
+}
+
+ /**
+  * 
+  * @param {number} xxx num
+  * @param {number} yyy num
+  * @returns {number}nu
+  */
+function add(xxx,yyy){
+    return xxx + yyy;
+}
+/**
+ * 
+ * @param {number} xxx num 
+ * @param {number} yyy num
+ * @returns {number}n
+ */
+function mult (xxx,yyy){
+    return xxx*yyy;
+}
 
 describe("isVowel", function () {
     it("a is vowel", function () {
@@ -37,4 +66,13 @@ describe("isVowel", function () {
         assert.equal(isVowel("5"), false);
     });
 });
+describe("executor", function () {
+    it("tests add", function () {
+        assert.strictEqual(executor(add, 5, 10), 15);
+    });
+    it("tests mult", function () {
+        assert.strictEqual(executor(mult, 5, 10), 50);
+    });
+});
+
 
