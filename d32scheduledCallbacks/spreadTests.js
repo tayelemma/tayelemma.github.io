@@ -1,6 +1,6 @@
 "use strict";
 
-/*global  copyArray concat findMin combineObjs*/
+/*global  copyArray concat findMin findMax concatArrays combineObjs*/
 /* You need the assert and function name declarations to test in node.  */
 // Comment these out when you send it to the browser with the index.html mocha setup page. 
 // const assert = require("assert");  //always need this with node
@@ -9,7 +9,8 @@
 // const concat = myExports.concat; 
 // const findMin = myExports.findMin; 
 // const combineObjs = myExports.combineObjs; 
-
+// const concatArrays = myExports.concatArrays;
+// const findMax = myExports.findMax;
 /*
 a)	Copy an array
 b)	Concatenate arrays into a new array
@@ -30,10 +31,17 @@ describe("spread operator tests", function () {
         assert.deepEqual(oldArr, [1, 2, 3]);
     });
 
-    it("tests concatenate arrays", function () {
+    it("tests concatenate array", function () {
         const arr1 = [1, 2, 3];
         const arr2 = [4, 5, 6];
         assert.deepEqual(concat(arr1, arr2), [1, 2, 3, 4, 5, 6]);
+    });
+    
+    it("tests concatenate arrays", function () {
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        const arr3 = [7, 8, 9];
+        assert.deepEqual(concatArrays(arr1, arr2, arr3), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
     });
 
     it("tests Math.min", function () {
@@ -41,6 +49,12 @@ describe("spread operator tests", function () {
         const arr2 = [4, 5, 6, 7, 8, 0];
         assert.strictEqual(findMin(...arr1), 1);
         assert.strictEqual(findMin(...arr2), 0);
+    });
+    it("tests Math.max", function () {
+        const arr1 = [1, 2, 3];
+        const arr2 = [4, 5, 6, 7, 8, 0];
+        assert.strictEqual(findMax(...arr1), 3);
+        assert.strictEqual(findMax(...arr2), 8);
     });
 
     it("tests combine objects", function () {

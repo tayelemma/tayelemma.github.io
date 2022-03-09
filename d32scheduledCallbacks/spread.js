@@ -3,7 +3,7 @@
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser 
 */
-//module.exports = {copyArray, concat, findMin, combineObjs }; //add all of your function names here that you need for the node mocha tests
+//module.exports = {copyArray, concat,concatArrays, findMin,findMax, combineObjs }; //add all of your function names here that you need for the node mocha tests
 
 
 /**
@@ -26,6 +26,17 @@ function concat(arr1, arr2){
     const newArr = arr1.concat(arr2); 
     return newArr; 
 }
+/**
+ * 
+ * @param {Array} arr1 first array input 
+ * @param {Array} arr2 second array input
+ * @param {Array} arr3 third array input
+ * @returns {Array} combined array
+ */
+function concatArrays(arr1, arr2, arr3){
+    let arr4 = [...arr1, ...arr2, ...arr3];
+    return arr4;
+}
 
 
 /**
@@ -34,25 +45,18 @@ function concat(arr1, arr2){
  * @returns {number} the minimum element
  */
 function findMin(...numbers){
-
     return Math.min(...numbers);
-
 }
-
 /**
  * 
- * @param  {Array} numbers array input 
- * @returns {number} the minimum element 
+ * @param  {Array} number input array 
+ * @returns {number} the maximum number
  */
-function findMin1(...numbers) {
-    const min = +Infinity; 
-    for (const element of numbers){
-        if(element < min){
-            min = element; 
-        }
-    }
-    return min; 
+function findMax(...number){
+    return Math.max(...number);
 }
+
+
 /**
  * 
  * @param {Object} obj1 first object input
