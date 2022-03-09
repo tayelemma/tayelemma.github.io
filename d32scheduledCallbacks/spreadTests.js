@@ -1,6 +1,6 @@
 "use strict";
 
-/*global  copyArray concat findMin findMax concatArrays combineObjs*/
+/*global  copyArray concat findMin findMax concatArrays combineObjs  */
 /* You need the assert and function name declarations to test in node.  */
 // Comment these out when you send it to the browser with the index.html mocha setup page. 
 // const assert = require("assert");  //always need this with node
@@ -11,6 +11,7 @@
 // const combineObjs = myExports.combineObjs; 
 // const concatArrays = myExports.concatArrays;
 // const findMax = myExports.findMax;
+// const destructure = myExports.destructure;
 /*
 a)	Copy an array
 b)	Concatenate arrays into a new array

@@ -1,9 +1,9 @@
 "use strict";
-/* eslint-disable */ 
+/* eslint-disable */
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser 
 */
-//module.exports = {copyArray, concat,concatArrays, findMin,findMax, combineObjs }; //add all of your function names here that you need for the node mocha tests
+//module.exports = {copyArray, concat,concatArrays, findMin,findMax, combineObjs,destructure }; //add all of your function names here that you need for the node mocha tests
 
 
 /**
@@ -11,7 +11,7 @@
  * @param {Array} arr the input array
  * @returns {Array} a copy of an array
  */
-function copyArray(arr){
+function copyArray(arr) {
     const clone = [...arr];
     return clone;
 }
@@ -22,9 +22,9 @@ function copyArray(arr){
  * @param {Array} arr2 second array input
  * @returns {Array} the combination of the two arrays. 
  */
-function concat(arr1, arr2){
-    const newArr = arr1.concat(arr2); 
-    return newArr; 
+function concat(arr1, arr2) {
+    const newArr = arr1.concat(arr2);
+    return newArr;
 }
 /**
  * 
@@ -33,7 +33,7 @@ function concat(arr1, arr2){
  * @param {Array} arr3 third array input
  * @returns {Array} combined array
  */
-function concatArrays(arr1, arr2, arr3){
+function concatArrays(arr1, arr2, arr3) {
     let arr4 = [...arr1, ...arr2, ...arr3];
     return arr4;
 }
@@ -44,7 +44,7 @@ function concatArrays(arr1, arr2, arr3){
  * @param  {Array} numbers the array input 
  * @returns {number} the minimum element
  */
-function findMin(...numbers){
+function findMin(...numbers) {
     return Math.min(...numbers);
 }
 /**
@@ -52,7 +52,7 @@ function findMin(...numbers){
  * @param  {Array} number input array 
  * @returns {number} the maximum number
  */
-function findMax(...number){
+function findMax(...number) {
     return Math.max(...number);
 }
 
@@ -63,9 +63,28 @@ function findMax(...number){
  * @param {Object} obj2 second object input
  * @returns {Object} the combination of the two object
  */
-function combineObjs(obj1, obj2){
-    let obj3 ={
-        ...obj1,...obj2
+function combineObjs(obj1, obj2) {
+    let obj3 = {
+        ...obj1, ...obj2
     }
     return obj3;
+}
+
+function destructure(user) {
+    user = {
+        name: "Tom",
+        passWord: 1234,
+        id: "s104"
+    };
+    let { name, ...rest } = user;
+    return rest.name + " " + rest.id;
+}
+
+/**
+ * 
+ * @param  {...any} value rest as a spread operator. 
+ * @returns {String} return string
+ */
+function printname(...value){
+    return value;
 }
