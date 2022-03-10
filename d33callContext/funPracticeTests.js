@@ -1,6 +1,6 @@
 "use strict";
 /* eslint-disable */
-/* global assert double cube even greater1 sum mult   */
+/* global assert myMap myFilter myReduce double cube even greater1 sum mult   */
 /* You need the assert and function name declarations to test in node.  
 Comment these out when you send it to the browser with the index.html mocha setup page. 
  */
