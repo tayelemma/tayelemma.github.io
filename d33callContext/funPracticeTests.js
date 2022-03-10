@@ -4,11 +4,11 @@
 /* You need the assert and function name declarations to test in node.  
 Comment these out when you send it to the browser with the index.html mocha setup page. 
  */
-const assert = require("assert");  
-const myExports = require("./funTests.js");  
-const myMap = myExports.myMap;  
-const myFilter = myExports.myFilter;
-const myReduce = myExports.myReduce;
+// const assert = require("assert");  
+// const myExports = require("./funTests.js");  
+// const myMap = myExports.myMap;  
+// const myFilter = myExports.myFilter;
+// const myReduce = myExports.myReduce;
 
 
 describe("map filter reduce", function () {
