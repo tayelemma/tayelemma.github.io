@@ -1,10 +1,13 @@
 "use strict";
 
-/* exports at end of file since exporting an object, which can only be referenced after definition 
- comment out when running in browser */
+/* 
+   exports at end of file since exporting an object, which can only be referenced after definition 
+   comment out when running in browser
+*/
 
 
-/* Write a program to compute student grades and the average score for the class.  Your program should have a quiz object that will contain properties of “students” and “key”.  The “students” property will be an array of student objects of the following form:
+/* 
+Write a program to compute student grades and the average score for the class.  Your program should have a quiz object that will contain properties of “students” and “key”.  The “students” property will be an array of student objects of the following form:
 
 student10 = {sid: 10, answers: [{qid: 2, ans: “b”}, {qid: 3, ans: “a”}, {qid: 1, ans: “b”}] }
 It has a property “sid” (student id) and another property “answers”.  The answer property holds an array that records the students answers for the quiz.  The array holds objects that have a question id (“qid”) property that uniquely identifies the question, and an “ans” property that holds the student’s answer.
@@ -91,7 +94,8 @@ function answerComparator(ans1, ans2) {
 
 
 
-    /* comment out when running in browser
-    module.exports = { quiz }; 
-
-    console.log(quiz.getAverage()); */
+    
+   // comment out when running in browser
+   // module.exports = { quiz }; 
+   // console.log(quiz.getAverage());
+     
