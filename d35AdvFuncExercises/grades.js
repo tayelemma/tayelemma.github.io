@@ -22,6 +22,7 @@ The answer arrays might not have the questions in the same order.  Write a funct
 */
 
 const quiz = {};
+
 quiz.students = [{ sid: 10, 
                    answers: [{ qid: 2, ans: "b" }, 
                              { qid: 3, ans: "a" }, 
@@ -38,7 +39,9 @@ quiz.students = [{ sid: 10,
                              { qid: 1, ans: "d" }] 
                 }];
                 
-quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
+quiz.key = [{ qid: 1, ans: "b" }, 
+            { qid: 2, ans: "a" }, 
+            { qid: 3, ans: "b" }];
 
 /**
  * 
@@ -70,7 +73,9 @@ function answerComparator(ans1, ans2) {
     quiz.scoreStudent = function (sid) {
         const stud= quiz.students.find(item => item.sid===sid);
         stud.answers.sort((a,b) => a.qid-b.qid);
-        let score=0;
+
+        let score = 0;
+
         for (let i=0; i<stud.answers.length; i++) {
             if (quiz.key[i].ans === stud.answers[i].ans)
                     score++;
@@ -84,7 +89,7 @@ function answerComparator(ans1, ans2) {
      * go through list of students and get score of each, then the average
      */
     quiz.getAverage = function () {
-        let score=0;
+        let score = 0;
         for(let stud of quiz.students)
         {
             score += this.scoreStudent(stud.sid);
