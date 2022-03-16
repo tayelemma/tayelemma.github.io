@@ -71,7 +71,7 @@ function answerComparator(ans1, ans2) {
      * compare them against key and add up matches
      */
     quiz.scoreStudent = function (sid) {
-        const stud= quiz.students.find(item => item.sid===sid);
+        const stud = quiz.students.find(item => item.sid===sid);
         stud.answers.sort((a,b) => a.qid-b.qid);
 
         let score = 0;

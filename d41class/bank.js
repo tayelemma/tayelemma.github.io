@@ -1,4 +1,5 @@
 "use strict";
+
 /* global exports require Account   SavingsAccount CheckingAccount */
 
 /* exports at end of file since exporting an object, which can only be referenced after definition   */
@@ -22,7 +23,6 @@ class Bank{
     constructor(){
         this._accounts =[];   
     }
-
     static nextNumber = 1;
 
     /**
@@ -63,7 +63,6 @@ class Bank{
        }       
     }
     accountReport(){
-        
         return this._accounts.join("\n");
     }
 
