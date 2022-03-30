@@ -54,7 +54,7 @@ a:hover{
     text-decoration: underline;
 }
 .par::first-letter{
-    font-size:1cm;
+    font-size:1.5cm;
     
 }
 .par{

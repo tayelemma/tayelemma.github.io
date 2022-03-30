@@ -1,0 +1,25 @@
+.mystory{
+    border-radius: 50px;
+   
+}
+.myb{
+    border-radius: 50px;
+
+}
+.myb::after{
+   float: left;
+    
+}
+img{
+    float: left;
+}
+.hd{
+    /* border: 5px solid black;
+    padding: 5px; */
+    background: hsl(157, 86%, 72%);
+    
+}
+button{
+    border-radius: 10px;
+    background-color:hsl(157, 86%, 72%);
+}
