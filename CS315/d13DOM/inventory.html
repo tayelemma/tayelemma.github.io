@@ -8,41 +8,66 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <h3>Inventory</h3>
-    <p>Item Name:</p>
-    <input type="text" id="itemName" onfocus="this.value=''" >
-    <p>Item Category:</p>
-    <input type="text" id="itemCategory" onfocus="this.value=''" >
-    <p>Quantity:</p>
-    <input type="text" id="itemQuantity" onfocus="this.value=''" >
-    <br>
-    <br>
+    <body>
+        <p>Item Name:</p>
+        <input id="name" type="text" >
+        <p>Item Category:</p>
+        <input id="category" type="text">
+        <p>Quantity:</p>
+        <input id="quantity" type="text" >
+        <br><br>
+        <div>
+            <button id="add" onclick="addItem()">Add</button>
+        </div>
+        <br>
+        <table id="tableId">        
+            <tr class="row0">
+                <th class="col1">Product Name</th>
+                <th class="col2">Category</th>
+                <th class="col3">Quantity</th>
+            </tr>
+            <tr>
+                <td>Computers</td>
+                <td class="col2">Digital</td>
+                <td class="col3">100</td>
+            </tr>
+            <tr>
+                <td class="col1">Magazines</td>
+                <td class="col2">Convenience</td>
+                <td class="col3">1000</td>
+            </tr>
+            <tr>
+                <td class="col1">Books</td>
+                <td class="col2">Education</td>
+                <td class="col3">20</td>
+            </tr>
+            
+        </table>
+        <script>
+            function addItem(){
+                let table = document.getElementById("tableId");
+                let names = document.getElementById("name");
+                let category = document.getElementById("category");
+                let quantity = document.getElementById("quantity");
+                let tr = document.createElement("tr");
+                table.append(tr);
+                let td1 = document.createElement("td");
+                tr.append(td1);
+                td1.innerText = names.value;
+                td1.style.paddingRight = "200px";
 
- <button class="but" onclick="add()" >Add</button>
- <button><a href="/CS315/d13DOM/home.html">Back</a></button>
- <br>
-    <table id="tableId">
-        <tr>
-            <td>Product Name</td>
-            <td>Category</td>
-            <td>Quantity</td>
-        </tr>
-    </table>
+                let td2 = document.createElement("td");
+                tr.append(td2);
+                td2.innerText = category.value;
+                td2.style.paddingRight = "200px";
 
-
-    <script>
-        let pName = document.getElementById("itemName");
-        let cat =  document.getElementById("itemCategory");
-        let qty = document.getElementById("itemQuantity");
-        let mytable = document.querySelector("table")
-        function add(){
-            let tr = document.createElement("tr");
-            mytable.append(tr);
-            tr.innerHTML = "<td>"+ pName.value+"</td><td>"+ cat.value+"</td><td>"+ qty.value+"</td>"
-
-        }
-    </script>
-    <br>
+                let td3 = document.createElement("td");
+                tr.append(td3);
+                td3.innerText = quantity.value;
+                td3.style.paddingRight = "200px";  
+            }
+        </script>
+        <br>
 
      <div>
         <a href="https://validator.w3.org/check/referer"style="background-color: transparent">
@@ -52,6 +77,7 @@
         <img style="border-style:none" width="88" height="25"src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" /></a>
 
     </div>
+     <button><a href="/CS315/d13DOM/home.html">Back</a></button>
     
    
 </body>
