@@ -1,25 +1,32 @@
 .mystory{
+    width: 200px;
     border-radius: 50px;
+    padding: 10px;
+
    
 }
-.myb{
-    border-radius: 50px;
-
+h1{
+    background: coral;
+    border: 2px solid black;
+    padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
 }
-.myb::after{
-   float: left;
+p{
+    border: 3px solid black;
+    padding: 5px;
+   
+    background: coral;
     
 }
+
 img{
     float: left;
 }
-.hd{
-    /* border: 5px solid black;
-    padding: 5px; */
-    background: hsl(157, 86%, 72%);
-    
-}
+
 button{
     border-radius: 10px;
     background-color:hsl(157, 86%, 72%);
+}
+body{
+    background: lightblue
 }
