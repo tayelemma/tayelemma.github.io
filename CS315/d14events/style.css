@@ -4,37 +4,36 @@ body {
 }
 input{
   width: 100%;
- border: 2px solid black;
+  border: 2px solid black;
 }
 p{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-h2{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #add {
-  
-   background-color: rgb(133, 190, 46);
+    
+    background-color: greenyellow;
     padding: 10px 30px;
     border-radius: 10px;
     margin-left: 40%;
     margin-bottom: 10px;
-    font-size: 12px ;
+    font-size: 20px ;
+    
 }
 
-
-.row0 {
-  background-color: rgb(95, 162, 204);
-}
 table {
   border-style: solid;
   margin: auto;
   width: 100%;
 
 }
+tr>th{
+  background-color: rgb(42, 133, 194);
+}
 
 tr:nth-child(even) {
   background-color: #bfdbe6;
 }
-
