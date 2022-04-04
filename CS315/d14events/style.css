@@ -1,39 +1,91 @@
 body {
-  margin: 5%;
-  background-color: rgba(196, 140, 21, 0.308);
-}
-input{
-  width: 100%;
-  border: 2px solid black;
-}
-p{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-h1{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 100px;
 }
 
-#add {
-    
-    background-color: greenyellow;
-    padding: 10px 30px;
-    border-radius: 10px;
-    margin-left: 40%;
-    margin-bottom: 10px;
-    font-size: 20px ;
-    
-}
-
-table {
-  border-style: solid;
-  margin: auto;
-  width: 100%;
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid black;
 
 }
-tr>th{
-  background-color: rgb(42, 133, 194);
+
+th {
+    background-color: rgb(142, 142, 171);
+    border: 1px solid;
+    text-align: left;
+    padding: 8px;
+}
+
+tr td {
+    text-align: left;
+    border: 1px solid hsl(0, 1%, 21%);
+    padding: 6px;
+
 }
 
 tr:nth-child(even) {
-  background-color: #bfdbe6;
+    background-color: #dddddd;
+}
+
+tr:hover {
+    background-color: rgb(160, 189, 160);
+}
+
+.bodyButton {
+    background-color: rgb(115, 186, 115);
+    position: relative;
+    margin-left: 100px;
+    color: black;
+    padding: 8px 30px;
+    font-size: 15px;
+    width: 10%;
+    border-radius: 5px;
+    border:  2px solid black;
+}
+
+input {
+    width: 100%;
+    padding: 6px;
+    border-style: solid;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+.bodyText {
+    background-color: orange;
+    margin-left: 50px;
+    padding: 4px;
+    font-size: 15px;
+    color: white
+}
+
+#filterDrop {
+    background-color: silver;
+    position: relative;
+    margin-left: 100px;
+    color: white;
+    padding: 8px;
+    font-size: 11px;
+    width: 10%;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
+#sortDrop {
+    background-color:silver;
+    position: relative;
+    margin-left: 100px;
+    color: white;
+    padding: 8px;
+    font-size: 11px;
+    width: 10%;
+    border-radius: 5px;
+    border:2px solid black;
+}
+#back{
+    background-color: gray;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-left: -55px;
 }
