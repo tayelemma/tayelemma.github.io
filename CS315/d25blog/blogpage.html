@@ -11,7 +11,7 @@
       }
       #div1 {
         background-color: rgb(202, 135, 73);
-        width: 97.5%;
+        width: 96.5%;
         margin: 5px;
         margin-left: 10px;
         border-radius: 4px;
@@ -48,7 +48,7 @@
         margin-left: 10px;
         padding: 10px;
         margin: -6px;
-        margin-top: -2px;
+        margin-top: -5px;
       }
       #div {
         border: 3px;
@@ -69,6 +69,7 @@
         padding: 5px;
         margin: 5px;
         border: 2px solid black;
+        height: 150px;
       }
       #recentPost {
         background-color: rgb(202, 135, 73);
@@ -112,17 +113,43 @@
         font: bold;
       }
       span {
-        padding-right: 120px;
-        font-size: 20px;
+        padding-right: 80px;
+        font-size: 15px;
         position: relative;
         color: black;
+      }
+      button {
+        border-radius: 5px;
+        padding: 4px 10px;
+      }
+      button:hover{
+        color: lightblue;
+      }
+      button:hover {
+        background-color: rgb(92, 137, 148);
       }
       h1 {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
-      h2{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      h2 {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        font-size: 17px;
+        margin-left: -15px;
+      }
+      a {
+        text-decoration: none;
+        color: #33475b;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #27485f;
+        font-weight: 600;
       }
     </style>
   </head>
@@ -131,12 +158,12 @@
       <div id="div1">
         <h2>Bidhan Tech Blog</h2>
         <pre></pre>
-        <span style="font-size: 16px;">An Example Technology Blog </span>
-        <span>HOME</span>
-        <span> RECENTPOSTS </span>
-        <span> BLOG </span>
-        <span> ABOUTME </span>
-        <span>CONTACT ME </span>
+        <span style="font-size: 16px">An Example Technology Blog </span>
+        <span> <button>HOME</button> </span>
+        <span> <button>RECENTPOSTS</button> </span>
+        <span> <button>BLOG</button></span>
+        <span> <button>ABOUTME</button> </span>
+        <span> <button>CONTACT ME</button></span>
       </div>
       <!-- 
 
@@ -243,7 +270,12 @@
               type="text"
               value="search..."
               placeholder="Search..."
-              style="width: 300px; margin: 8px; border: 1px solid black"
+              style="
+                width: 250px;
+                height: 25px;
+                margin: 8px;
+                border: 1px solid black;
+              "
             />
             <input
               value="Search"
@@ -259,10 +291,28 @@
           <h2>Recent Posts</h2>
           <div style="background-color: black; height: 5px"></div>
           <div>
-            <h5>An Example of Post#3</h5>
-            <h5>An Example of Post#2</h5>
-            <h5>An Example of Post#1</h5>
-            <h5>An Example of Post#0</h5>
+            <ul>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An Example Post #1</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An Example Post #2</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An Example Post #3</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An Example Post #4</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -274,10 +324,28 @@
           <h2>Pages</h2>
           <div style="background-color: black; height: 5px"></div>
           <div>
-            <h5>About Me</h5>
-            <h5>Contact Me</h5>
-            <h5>Cookies & Priveacy Policy</h5>
-            <h5>terms & Conditions</h5>
+            <ul>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >About Me</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >Contact Me</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >Cookies & Priveacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >terms & Conditions</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -285,9 +353,23 @@
           <h2>Categories</h2>
           <div style="background-color: black; height: 3px"></div>
           <div>
-            <h5>Blog Post</h5>
-            <h5>Example Post</h5>
-            <h5>Nature</h5>
+            <ul>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >Blog Post</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >Example Post</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >Nature</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
         <!--  -->
@@ -296,9 +378,23 @@
 
           <div style="background-color: black; height: 5px"></div>
           <div>
-            <h5>An example Post#3</h5>
-            <h5>An example Post#2</h5>
-            <h5>An example Post#1</h5>
+            <ul>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An example Post#3</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An example Post#2</a
+                >
+              </li>
+              <li>
+                <a href="#" style="text-decoration: none; color: black"
+                  >An example Post#1</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </div>
