@@ -7,7 +7,7 @@ window.onload = function () {
     document.getElementById("filterDrop").onchange = filterElem ;
 }
 
-let contentArr = [];
+let storageArray = [];
 let table = document.getElementById("myTable");
 let arrayOfValues;
 let rowObj;
@@ -55,8 +55,7 @@ function add() {
     } else if (!(Number(quantity))) {
         alert("Quantity must be number");
         document.getElementById("quantity").style.backgroundColor = "red";
-    } else {
-        
+    } else {       
         document.getElementById("quantity").style.backgroundColor = "";
         let addedRow = table.insertRow(-1);
         addedRow.id = index;
@@ -66,7 +65,7 @@ function add() {
         addedRow.insertCell(3).innerHTML = rating;
         addedRow.insertCell(4).innerHTML = "<button id='editButton' onclick='edit(this)'>Edit/Input again</button>";
         addedRow.insertCell(5).innerHTML = "<button id='removeButton' onclick='remove(this)'>Remove</button>";
-        contentArr.push({ name: itemName, category: category, quantity: quantity, rating: rating, id: index });
+        storageArray.push({ name: itemName, category: category, quantity: quantity, rating: rating, id: index });
         index++;
     }
 }
@@ -75,9 +74,9 @@ function add() {
 
 function remove(obj) {
     let rowToRemove = obj.parentNode.parentNode;
-    for (let element of contentArr) {
+    for (let element of storageArray) {
         if (element.id == rowToRemove.id) {
-            contentArr.splice(contentArr.indexOf(element), 1);
+            storageArray.splice(storageArray.indexOf(element), 1);
         }
     }
     rowToRemove.remove();
@@ -105,7 +104,7 @@ function save() {
     arrayOfValues[2].innerHTML = quantity;
     arrayOfValues[3].innerHTML = rating;
 
-    for (let element of contentArr) {
+    for (let element of storageArray) {
         if (element.id == rowObj.id) {
             element.name = itemName;
             element.category = category;
@@ -114,7 +113,7 @@ function save() {
         }
     }
     console.log(rowObj);
-    console.log(contentArr)
+    console.log(storageArray)
 }
 //
 //
@@ -129,7 +128,7 @@ function sortElements() {
     }
     if (sortBy === "name") {
         console.log("sort by name");
-        contentArr.sort((a, b) => {
+        storageArray.sort((a, b) => {
             if (a.name > b.name) {
                 return 1;
             } else if (a.name < b.name) {
@@ -138,12 +137,12 @@ function sortElements() {
                 return 0;
             }
         })
-        tableUpdate(contentArr);
+        tableUpdate(storageArray);
 
     } else if (sortBy === "quantity") {
         console.log("sort by quantity");
-        contentArr.sort((a, b) => a.quantity - b.quantity);
-        tableUpdate(contentArr);
+        storageArray.sort((a, b) => a.quantity - b.quantity);
+        tableUpdate(storageArray);
     }
 }
 //
@@ -157,10 +156,10 @@ function filterElem() {
         }
     }
     if (filteredList === "filterquantity") {
-        filtedArr = contentArr.filter(item => item.quantity > 100);
+        filtedArr = storageArray.filter(item => item.quantity > 100);
         tableUpdate(filtedArr);
     } else if (filteredList === "filterrating") {
-        filtedArr = contentArr.filter(item => item.rating > 4);
+        filtedArr = storageArray.filter(item => item.rating > 4);
         tableUpdate(filtedArr);
     }
 }
