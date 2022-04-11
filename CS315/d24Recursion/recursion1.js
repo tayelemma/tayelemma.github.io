@@ -31,14 +31,14 @@ displayNames(abe);
 
 
 //1
-function displayNames(simpsons) {
-    if (simpsons.descendents === []) {
-        console.log(`${simpsons.value}`);
+function displayNames(tree) {
+    if (tree.descendents === []) {
+        console.log(`${tree.value}`);
     } else {
-        for (const simpson of simpsons.descendents) {
+        for (const simpson of tree.descendents) {
             displayNames(simpson);
         }
-        console.log(`${simpsons.value}`);
+        console.log(`${tree.value}`);
     }
 }
 //2
@@ -56,6 +56,7 @@ function findTarget(tree, str) {
     }
     return false;
 }
+console.log("This should return you true:-" + " "+  findTarget( abe,"Maggie"));
 
 //3
 function findSubtree(tree, str) {
@@ -72,6 +73,7 @@ function findSubtree(tree, str) {
     }
     return null;
 }
+console.log(findSubtree(abe,"Homer"))
 
 
 //5
@@ -112,9 +114,11 @@ function reverseNode(list) {
 }
 
 //7
-const collector = [];
+//const collector = [];
 
 function treeCollector(list) {
+
+   let  collector = [];  
     collector.push(list.value);
     if (list.next !== null) {
         treeCollector(list.next);

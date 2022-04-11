@@ -68,7 +68,7 @@
       <input type="button" value="Add" id="addBtn" />
     </div>
     <p class="inputVal">Please input all values</p>
-    <div class="hide" id="divCheck">
+    <div class="inputVal" id="divCheck">
       Add to:
       <input id="tableId" type="checkbox" />Table
       <input id="listId" type="checkbox" />List
@@ -81,7 +81,7 @@
       <h3>Table</h3>
       <table id="table"></table>
     </div>
-    <button class="hide" id="buttonId">Remove site</button>
+    <button class="inputVal" id="buttonId">Remove site</button>
 
     <script>
       "use strict";
@@ -163,8 +163,8 @@
             address: addressName.value,
             keywordvalue: arr,
           };
-
           ArrayForList.push(listObject);
+          
           if (ArrayForList.length > 1) {
             ArrayForList.sort(function (a, b) {
               let first = a.site.toUpperCase();
