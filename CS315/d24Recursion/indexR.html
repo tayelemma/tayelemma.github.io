@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+
+"use strict";
+/* eslint-disable */
+
+let list = {
+    value: 1,
+    next: {
+        value: 2,
+        next: {
+            value: 3,
+            next: {
+                value: 4,
+                next: null
+            }
+        }
+    }
+};
+//Part-I
+//Sum all numbers till the given one.
+function sumAll(num) {
+    if (num === 1) {
+        return 1;
+    } else {
+        return num + sumAll(num - 1);
+    }
+}
+console.log(sumAll(100));
+
+
+//Calculate factorial
+function factorial(num) {
+    if (num === 1) {
+        return 1;
+    } else {
+        return num * factorial(num - 1);
+    }
+}
+console.log(factorial(4));
+
+
+//Fibonacci numbers
+function fibonacci(num) {
+    if (num <= 1) {
+        return num;
+    } else {
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
+}
+console.log(fibonacci(5));
+
+//Output a single-linked list in a reverse order. 
+function singleListReverse(list) {
+    if (list.next === null) {
+        console.log(list.value);
+    } else {
+        singleListReverse(list.next);
+        console.log(list.value);
+    }
+}
+singleListReverse(list);
+
+//Part II
+// "name: value"
+function printKeyValueNode(node) {
+    if (node.children == null) {
+        console.log(`${node.name} : ${node.value} `);
+    }
+    else {
+        for (let subNode of node.children) {
+            printKeyValueNode(subNode);
+        }
+        console.log(`${node.name} : ${node.value} `);
+    }
+}
+
+
+function printNodeNameValue(node) {
+    console.log(`${node.name} : ${node.value} `);
+    if (node.children !== null) {
+        for (const child of node.children) {
+            console.log(`${child.name} : ${child.value} `);
+            if (child.children !== null) {
+                for (const baby of child.children) {
+                    console.log(`${baby.name} : ${baby.value} `);
+                }
+            }
+        }
+    }
+
+}
+/*2. Modify both versions to return an array containing the “name:value” strings for the entries rather
+    than printing the values to the console.
+*/
+const collectionName = [];
+
+function collectValues(node) {
+    collectionName.push(`${node.name} : ${node.value}`);
+    if (node.children !== null) {
+        for (const kid of node.children) {
+            collectionName.push(`${kid.name} : ${kid.value}`);
+            if (kid.children !== null) {
+                for (const baby of kid.children) {
+                    collectionName.push(`${baby.name} : ${baby.value}`);
+                }
+            }
+        }
+
+
+    }
+    return collectionName;
+}
+
+
+function TreeNode(value) {
+    this.value = value;
+    this.descendents = [];
+}
+
+const abe = new TreeNode("Abe");
+const homer = new TreeNode("Homer");
+const bart = new TreeNode("Bart");
+const lisa = new TreeNode("Lisa");
+const maggie = new TreeNode("Maggie");
+abe.descendents.push(homer);
+homer.descendents.push(bart, lisa, maggie);
+
+
+//4
+function LinkedList(value, next) {
+    this.value = value;
+    this.next = next;
+}
+const maggie1 = new LinkedList("Maggie", null);
+const lisa1 = new LinkedList("Lisa", maggie1);
+const bart1 = new LinkedList("Bart", lisa1);
+const homer1 = new LinkedList("Homer", bart1);
+const abe1 = new LinkedList("Abe", homer1);
+
+
+console.log(treeCollector(abe1));
+displayNames(abe);
+
+
+//1
+function displayNames(simpsons) {
+    if (simpsons.descendents === []) {
+        console.log(`${simpsons.value}`);
+    } else {
+        for (const simpson of simpsons.descendents) {
+            displayNames(simpson);
+        }
+        console.log(`${simpsons.value}`);
+    }
+}
+//2
+function findTarget(tree, str) {
+    if (tree.value === str) {
+        return true;
+    }
+    if (tree.descendents !== []) {
+        for (const subTree of tree.descendents) {
+            if (findTarget(subTree, str)) {
+                return true;
+            }
+        }
+
+    }
+    return false;
+}
+
+//3
+function findSubtree(tree, str) {
+    if (tree.value === str) {
+        return tree;
+
+    } else if (tree.descendents.length !== 0) {
+        for (const subTree of tree.descendents) {
+            if (findTarget(subTree, str)) {
+                return findSubtree(subTree, str);
+            }
+
+        }
+    }
+    return null;
+}
+
+
+//5
+function findListNode(list, str) {
+    if (list.value === str) {
+        return list;
+
+    } else if (list.next !== null) {
+        return (findListNode(list.next, str));
+    }
+}
+
+
+//6
+function treeModifier(list, modifierFun) {
+    modifierFun(list);
+    if (list.next !== null) {
+        treeModifier(list.next, modifierFun);
+    }
+}
+//6a
+function allCaps(list) {
+    list.value = list.value.toUpperCase();
+
+}
+//6b
+function addStars(list) {
+    list.value = "***" + list.value + "***";
+}
+//6c
+function reverseNode(list) {
+    let reversed = "";
+    for (let i = list.value.length - 1; i >= 0; i--) {
+        reversed += list.value.charAt(i);
+    }
+    list.value = reversed;
+
+}
+
+//7
+const collector = [];
+
+function treeCollector(list) {
+    collector.push(list.value);
+    if (list.next !== null) {
+        treeCollector(list.next);
+    }
+    return collector;
+}
+
+
+    </pre>
+      <div>
+         <button id="back" ><a href="recursion.html" style="border-radius: 4px; padding: 11px 15px">Back</a></button>
+    </div>
+</body>
+</html>
