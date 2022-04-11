@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam</title>
+
+    <style>
+      .tableHead {
+        background-color: rgb(82, 135, 82);
+        color: white;
+      }
+
+      .inputVal {
+        display: none;
+        color: red;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      td[value="amazon"] {
+        color: rgb(76, 168, 76);
+      }
+
+      td {
+        border-color: rgb(201, 227, 250);
+      }
+
+      td:nth-child(3) {
+        background-color: rgba(0, 0, 255, 0.362);
+      }
+      #table:hover {
+        font-weight: 700;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Sites</h2>
+    <div>
+      <span name="span" class="inputVal">*</span>
+      <input
+        id="siteId"
+        type="text"
+        placeholder="Enter Site Name"
+        onfocus="this.value=''"
+      />
+      <span name="span" class="inputVal">*</span>
+      <input
+        id="addressId"
+        type="text"
+        placeholder="Enter Address"
+        onfocus="this.value=''"
+      />
+      <span name="span" class="inputVal">*</span>
+      <input
+        id="keywordsId"
+        type="text"
+        placeholder="Enter Keywords"
+        onfocus="this.value=''"
+      />
+      <input type="button" value="Add" id="addBtn" />
+    </div>
+    <p class="inputVal">Please input all values</p>
+    <div class="hide" id="divCheck">
+      Add to:
+      <input id="tableId" type="checkbox" />Table
+      <input id="listId" type="checkbox" />List
+    </div>
+    <div>
+      <h3>List</h3>
+      <p id="list"></p>
+    </div>
+    <div>
+      <h3>Table</h3>
+      <table id="table"></table>
+    </div>
+    <button class="hide" id="buttonId">Remove site</button>
+
+    <script>
+      "use strict";
+
+      let siteName;
+      let addressName;
+      let keywords;
+      let tableBox;
+      let listBox;
+      let message;
+      let symbol;
+      let boolean = true;
+      let ArrayForTable = [];
+      let ArrayForList = [];
+
+      window.onload = function () {
+        document.getElementById("addBtn").onclick = add;
+        document.getElementById("buttonId").onclick = remove;
+        document.getElementById("tableId").onclick = tableObject;
+        document.getElementById("table").onclick = sortDescending;
+        document.getElementById("listId").onclick = listObject;
+      };
+
+      function add() {
+        siteName = document.getElementById("siteId");
+        addressName = document.getElementById("addressId");
+        keywords = document.getElementById("keywordsId");
+        tableBox = document.getElementById("tableId");
+        listBox = document.getElementById("listId");
+        message = document.getElementsByTagName("p")[0];
+        symbol = document.getElementsByName("span");
+
+        //Validate the inputs
+        if (
+          siteName.value == "" ||
+          addressName.value == "" ||
+          keywords.value == ""
+        ) {
+          if (siteName.value == "") {
+            siteName.style.border = "1px red solid";
+            symbol[0].style.display = "inline";
+          } else {
+            siteName.style.border = "1px black solid";
+            symbol[0].style.display = "none";
+          }
+          if (addressName.value == "") {
+            addressName.style.border = "1px red solid";
+            symbol[1].style.display = "inline";
+          } else {
+            symbol[1].style.display = "none";
+            addressName.style.border = "1px black solid";
+          }
+
+          if (keywords.value == "") {
+            keywords.style.border = "1px red solid";
+            symbol[2].style.display = "inline";
+          } else {
+            keywords.style.border = "1px black solid";
+            symbol[2].style.display = "none";
+          }
+
+          message.style.display = "block";
+        } else {
+          siteName.style.border = "1px black solid";
+          addressName.style.border = "1px black solid";
+          keywords.style.border = "1px black solid";
+          symbol.forEach((item) => (item.style.display = "none"));
+          message.style.display = "none";
+          let checkBoxes = document.getElementById("divCheck");
+          checkBoxes.style.display = "block";
+        }
+
+        if ((boolean = true && listBox.checked)) {
+          let splitKeywords = document.getElementById("keywordsId").value;
+          let arr = splitKeywords.split(",");
+
+          let listObject = {
+            site: siteName.value,
+            address: addressName.value,
+            keywordvalue: arr,
+          };
+
+          ArrayForList.push(listObject);
+          if (ArrayForList.length > 1) {
+            ArrayForList.sort(function (a, b) {
+              let first = a.site.toUpperCase();
+              let second = b.site.toUpperCase();
+              if (first > second) return 1;
+              if (first < second) return -1;
+              return 0;
+            });
+          }
+          addNewList();
+        }
+
+        if ((boolean = true && tableBox.checked)) {
+          let tableObject = {
+            site: siteName.value,
+            address: addressName.value,
+            keywordvalue: keywords.value,
+          };
+          ArrayForTable.push(tableObject);
+          if (ArrayForTable.length > 1) {
+            ArrayForTable.sort(function (a, b) {
+              let aa = a.site.toUpperCase();
+              let bb = b.site.toUpperCase();
+              if (aa > bb) return 1;
+              if (aa < bb) return -1;
+              return 0;
+            });
+          }
+          addNewTable();
+        }
+      }
+      function sortDescending() {
+        
+        ArrayForTable.reverse();
+        addNewTable();
+      }
+      //This function takes all three inputs and add them into object and push the object into an array and sort the array.
+      //Then it call the method to createlist();
+      function listObject() {
+        let siteBox = document.getElementById("siteId").value;
+        let addressBox = document.getElementById("addressId").value;
+        let splitkeywords = document.getElementById("keywordsId").value;
+        let arr = splitkeywords.split(",");
+        let objList = {
+          site: siteBox,
+          address: addressBox,
+          keywordvalue: arr,
+        };
+        ArrayForList.push(objList);
+        if (ArrayForList.length > 1) {
+          ArrayForList.sort(function (a, b) {
+            let aa = a.site.toUpperCase();
+            let bb = b.site.toUpperCase();
+            if (aa > bb) return 1;
+            if (aa < bb) return -1;
+            return 0;
+          });
+        }
+        addNewList();
+      }
+
+      function addNewList() {
+        let myList = document.getElementById("list");
+        myList.innerHTML = "";
+        for (let element of ArrayForList) {
+          let link = document.createElement("a");
+          link.innerHTML = element.site;
+          link.setAttribute("href", element.address);
+          myList.append(link);
+          let uL = document.createElement("ul");
+          if (element.site === "amazon") {
+            link.setAttribute("style", "color:green");
+            for (let item of element.keywordvalue) {
+              let li = document.createElement("li");
+              li.innerHTML = item;
+              li.setAttribute("style", "color:blue");
+              uL.append(li);
+            }
+            let newBreak = "<br>";
+            myList.innerHTML += newBreak;
+          } else {
+            for (let item of element.keywordvalue) {
+              let li = document.createElement("li");
+              li.innerHTML = item;
+              uL.append(li);
+            }
+            let newBreak = "<br>";
+            myList.innerHTML += newBreak;
+          }
+          myList.append(uL);
+        }
+      }
+
+      function tableObject() {
+        let siteBox = document.getElementById("siteId");
+        let addressBox = document.getElementById("addressId");
+        let keywordsBox = document.getElementById("keywordsId");
+        let tableobj = {
+          site: siteBox.value,
+          address: addressBox.value,
+          keywordvalue: keywordsBox.value,
+        };
+        ArrayForTable.push(tableobj);
+
+        if (ArrayForTable.length > 1) {
+          ArrayForTable.sort(function (a, b) {
+            let aa = a.site.toUpperCase();
+            let bb = b.site.toUpperCase();
+            if (aa > bb) return 1;
+            if (aa < bb) return -1;
+            return 0;
+          });
+        }
+        addNewTable();
+      }
+
+      function addNewTable() {
+        let myTable = document.getElementById("table");
+        let tableHeader =
+          "<tr class='tableHead'>    <b> <td>Site Name</td>   <td>Keywords</td>   </b> </tr";
+        myTable.innerHTML = tableHeader;
+        let index = 1;
+        for (let element of ArrayForTable) {
+          if (element.site == "amazon") {
+            let newRow =
+              "<tr>    <td><a href='" +
+              element.address +
+              "' style='color:green'>" +
+              element.site +
+              "</a></td>   <td style='color:blue;'>" +
+              element.keywordvalue +
+              "</td>";
+            myTable.innerHTML += newRow;
+            index++;
+          } else {
+            if (index === 3) {
+              let newRow =
+                "<tr style='background-color: blue;'> <td> <a href=  '" +
+                element.address +
+                "'  > " +
+                element.site +
+                " </a></td>  <td>" +
+                element.keywordvalue +
+                "</td>";
+              myTable.innerHTML += newRow;
+            } else {
+              let newRow =
+                "<tr><td><a href='" +
+                element.address +
+                "'>" +
+                element.site +
+                "</a></td><td>" +
+                element.keywordvalue +
+                "</td>";
+              myTable.innerHTML += newRow;
+            }
+            index++;
+          }
+        }
+        document.getElementById("buttonId").style.display = "block";
+      }
+
+      function remove() {
+        let toBeRemoved = prompt("Enter a list name to delete?","");
+        if (toBeRemoved != null) {
+          for (let i = 0; i < ArrayForTable.length; i++) {
+            if (ArrayForTable[i].site == toBeRemoved) {
+              ArrayForTable.splice(i, 1);
+              i--;
+            }
+          }
+          addNewTable(ArrayForTable);
+        }
+      }
+    </script>
+    <br>
+    
+         <div>
+      <a
+        href="https://validator.w3.org/nu/?doc=https://tayelemma.github.io/blob/main/CS315/d22MidExam/mid.html"
+        style="background-color: transparent"
+      >
+        <img
+          style="border-style: none; margin-left: 0px;"
+          width="88"
+          height="31"
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0 Strict"
+      /></a>
+      &nbsp;&nbsp;
+      <a
+        href="https://jigsaw.w3.org/css-validator/validator?uri=https://tayelemma.github.io/blob/main/CS315/d22MidExam/mid.html"
+        style="background-color: transparent"
+      >
+        <img
+          style="border-style: none"
+          width="88"
+          height="31"
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+          alt="Valid CSS!"
+      /></a>
+      <br />
+    </div>
+
+    <div>
+      <button id="back">
+        <a href="/index2.html" style="border-radius: 4px; padding: 11px 15px;"
+          >Home</a
+        >
+      </button>
+    </div>
+
+
+  </body>
+</html>
