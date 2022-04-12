@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body{
+           
+            background-color: gray;
+             padding: 20px;
+          
+        }
+        .container {
+             display: grid;
+            background-color: black;
+            padding:50px ;
+           
+        }
+
+        .gridContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            gap: 10px;
+          
+        }
+
+        .flexContainer { 
+            display: flex;         
+            justify-content: space-between;
+            
+        }
+
+        .innerFlex {
+            display: flex;
+            width: 40%;
+            justify-content: space-around;
+          
+        }
+
+        .roundBox {
+            display: flex;
+            border: 1px solid gray;
+            background-color: rgba(128, 128, 128, 0.705);
+            border-radius: 50px;
+            justify-content: space-between;
+        }
+
+        .label {
+            background-color: orange;
+            border-radius: 50px;
+            padding: 5px 20px;
+        }
+
+        label,
+        p,
+        h3 {
+            color: white;
+        }
+
+        .label1 {
+            border-radius: 50px;
+            padding: 5px
+        }
+
+        .tweets {
+            display: grid;
+            grid-template-columns: 1fr 6fr;
+        }
+        .tweets>p{
+            font-style: italic;
+        }
+        .image1{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height:80%;
+            padding-top: 20px;
+               
+        }
+        .image{
+            width:100%;
+            height:70%;
+            object-fit: cover;
+        }
+        .box{
+            background-color: black;
+        }
+       
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="gridContainer">
+            <div class="box box1">
+                <div>
+                    <h3>About Us</h3> 
+                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum natus doloribus
+                    perferendis dolore harum accusantium ullam facere maiores blanditiis quibusdam, molestias
+                    dolorem, ad sequi vero dignissimos fugiat ducimus laborum esse!
+                </p> 
+                </div>
+        
+                <br>
+
+                <div>
+                    <p>
+                    <img src="/CS315/dddimage/phone.png" style="width:5%;">
+                    <label> +1 291 3912 329</label>
+                </p>
+                <p>
+                    <img src="/CS315/dddimage/mail.png" style="width:6%;margin-bottom: -4px;">
+                    <label>info@gmail.com</label>
+                </p> 
+                </div>
+               
+                <br>
+                <div class="roundBox">
+                    <label class="label1">Enter your e-mail</label>
+                    <label class="label">Send</label>
+                </div>
+
+            </div>
+            <div class="box">
+                <h3>Latest Tweet</h3>
+                <div class="tweets">
+                    <p>
+                        <img src="/CS315/dddimage/twitter.PNG" style="width:50%">
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus soluta
+                        reiciendis impedit ratione quo quibusdam
+                     
+                    </p>
+                    <p>
+                        <img src="/CS315/dddimage/twitter.PNG "style="width:50%">
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus soluta
+                        reiciendis impedit ratione quo quibusdam, 
+                       
+                    </p>
+                    <p>
+                        <img src="/CS315/dddimage/twitter.PNG" style="width:50%">
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus soluta
+                        reiciendis impedit ratione quo quibusdam, 
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Instagram</h3>
+                <div class="image1">
+                    <img src="/CS315/dddimage/camera1.PNG" class="image">
+                    <img src="/CS315/dddimage/camera2.jpeg" class="image">
+                    <img src="/CS315/dddimage/Capture.PNG" class="image">
+                    <img src="/CS315/dddimage/camera3.PNG" class="image">
+                </div>
+            </div>
+        </div>
+        <p> <hr style="margin:0px 10px"> </p>
+        <div class="flexContainer">
+            <div class="innerFlex">
+                <p>Home</p>
+                <p>About</p>
+                <p>Our works</p>
+                <p>Services</p>
+                <p>Blog</p>
+                <p>Contacts</p>
+            </div>
+            <p style="padding-right: 10px;">Colorlib</p>
+        </div>
+    </div> 
+
+      <div>
+      <a
+        href="https://validator.w3.org/nu/?doc=https://tayelemma.github.io/blob/main/CS315/d31Grid/gri.html"
+        style="background-color: transparent"
+      >
+        <img
+          style="border-style: none"
+          width="88"
+          height="31"
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0 Strict"
+      /></a>
+      &nbsp;&nbsp;
+      <a
+        href="https://jigsaw.w3.org/css-validator/validator?uri=https://tayelemma.github.io/blob/main/CS315/d31Grid/gri.html"
+        style="background-color: transparent"
+      >
+        <img
+          style="border-style: none"
+          width="88"
+          height="31"
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+          alt="Valid CSS!"
+      /></a>
+      <br />
+    </div>
+
+    <div>
+      <button id="back">
+        <a href="/index2.html" style="border-radius: 4px; padding: 11px 15px"
+          >Back</a
+        >
+      </button>
+    </div>
+</body>
+
+</html>
