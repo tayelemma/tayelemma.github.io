@@ -28,7 +28,23 @@ const abe1 = new LinkedList("Abe", homer1);
 
 console.log(treeCollector(abe1));
 displayNames(abe);
+/*
 
+function generateList(root){
+    if(root.descendents ==null || root.descendents.length==0)
+        return new LinkedList(root.value);
+        let linkedlist = new LinkedList(root.value); //{value:"abe"} //2nd {value}
+        let list = linkedlist;//home.next = maggie
+    for(let eachchild of root.descendents){ //{homer},{lisa},{bart}
+        list.next = generateList(eachChild);
+        list =list.next;
+        //linkedlist.next =generateList(eachchild);
+    }
+    return linkedlist;
+}
+console.log(JSON.stringify(generateList(abe)));
+
+*/
 
 //1
 function displayNames(tree) {
