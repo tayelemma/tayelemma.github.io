@@ -28,7 +28,7 @@ const abe1 = new LinkedList("Abe", homer1);
 
 console.log(treeCollector(abe1));
 displayNames(abe);
-/*
+
 
 function generateList(root){
     if(root.descendents ==null || root.descendents.length==0)
@@ -44,7 +44,7 @@ function generateList(root){
 }
 console.log(JSON.stringify(generateList(abe)));
 
-*/
+
 
 //1
 function displayNames(tree) {
@@ -57,6 +57,7 @@ function displayNames(tree) {
         console.log(`${tree.value}`);
     }
 }
+
 //2
 function findTarget(tree, str) {
     if (tree.value === str) {
@@ -74,22 +75,25 @@ function findTarget(tree, str) {
 }
 console.log("This should return you true:-" + " "+  findTarget( abe,"Maggie"));
 
+
+
 //3
-function findSubtree(tree, str) {
-    if (tree.value === str) {
-        return tree;
+function findSubtree(root, str) {
+    if (root.value === str) {
+        return root.descendents;
 
-    } else if (tree.descendents.length !== 0) {
-        for (const subTree of tree.descendents) {
-            if (findTarget(subTree, str)) {
-                return findSubtree(subTree, str);
+    } else if (root.descendents.length !== 0) {
+        for (const subRoot of root.descendents) {
+            if (findTarget(subRoot, str)) {
+                return findSubtree(subRoot, str);
             }
-
         }
     }
     return null;
 }
-console.log(findSubtree(abe,"Homer"))
+console.log("The sub-root of 'abe' " + findSubtree(abe,"Homer"))
+
+
 
 
 //5
@@ -132,15 +136,23 @@ function reverseNode(list) {
 //7
 //const collector = [];
 
-function treeCollector(list) {
+// function treeCollector(list) {
 
-   let  collector = [];  
-    collector.push(list.value);
-    if (list.next !== null) {
-        treeCollector(list.next);
+//    let  collector = [];  
+//     collector.push(list.value);
+//     if (list.next !== null) {
+//         treeCollector(list.next);
+//     }
+//     return collector;
+// }
+function treeCollector(tree) {
+    let names = [tree.value];
+    for (let child of tree.descendents) {
+        names = names.concat(treeCollector(child));
     }
-    return collector;
+    return names;
 }
+// console.log(treeCollector(abe))
 
 
 
