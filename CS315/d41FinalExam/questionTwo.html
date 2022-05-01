@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            object-fit: cover;
+            width:200px;
+            height:200px;
+        }
+        .horizontalDIV{
+            display:flex;
+            gap:10px;
+            margin-left: 10px;
+        }
+        .centerText{
+            position: absolute;
+            left:650px;
+            top:300px;
+            font-size:40pt
+        }
+        .leftDIV{
+            float:left;
+        }
+        .rightDIV{
+            float:right;
+            /* margin-right:5px; */
+        }
+        .sideDIV{
+            display:flex;
+            gap:10px;
+            flex-direction: column;
+        }
+        .sideParent{
+            display:flow-root;
+            margin: 10px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body >
+    <div class="horizontalDIV">
+        <img src="images/redFlower.jpeg" >
+        <img src="images/redFlower.jpeg" >
+        <img src="images/redFlower.jpeg" >
+        <img src="images/redFlower.jpeg" >
+        <img src="images/redFlower.jpeg" >
+        <img src="images/redFlower.jpeg">
+        <img src="images/redFlower.jpeg">
+    </div>
+    <div class="sideParent">
+        <div class="leftDIV">
+            <div class="sideDIV">
+                <img src="images/redFlower.jpeg" >
+                <img src="images/redFlower.jpeg" >
+            </div>
+        </div>
+       <p class="centerText">Center Me</p>
+        <div class="rightDIV">
+            <div class="sideDIV">
+                <img src="images/redFlower.jpeg">
+                <img src="images/redFlower.jpeg" >
+            </div>
+        </div>
+    </div>
+     
+        <div class="horizontalDIV">
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+            <img src="images/redFlower.jpeg" >
+        </div>
+          <button id="back">
+        <a href="index.html" style="border-radius: 4px; padding: 11px 15px"
+          >Back</a
+        >
+      </button>
+   
+</body>
+</html>

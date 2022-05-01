@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <style>
+        body{
+            padding:20px;
+            margin:10px;
+            background-color: antiquewhite;
+            border:1px solid blue;
+        }
+        .header{
+            background-color:aqua;
+            margin-bottom:10px; 
+            display:flex;
+            justify-content: space-evenly;
+        }
+        .headerImageDIV{
+            display:flex;
+            gap:10px;
+        }
+        .headerImage{
+            align-self:center;
+            border-radius: 50%;
+            object-fit: cover;
+            width:100px;
+            height:100px;
+        }
+        .lowerDIV {
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr 1fr ;
+            margin:20px 110px;
+            gap:30px;
+        }
+        .lowerImage{
+            object-fit: cover;
+            float:left;margin-right:10px;
+            width:100px;
+            height:100px;
+        }
+        .paraStyle{
+            background-color: coral;
+            padding:10px;
+        }
+        @media only screen and (max-width: 600px) {
+            .lowerDIV{
+                display:grid;
+                grid-template-columns:1fr 1fr ;
+                margin:20px 110px;
+                gap:30px;
+            }
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <label>Mission</label>
+        <label>About</label>
+        <label>Blog</label>
+        <label>Contact</label>
+    </div>
+
+    <div class="headerImageDIV">
+        <img src="images/redFlower.jpeg" class="headerImage"  />
+        <p class="paraStyle">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Exercitationem sint in suscipit voluptas non
+            reiciendis eum inventore. Quod, maxime non. Porro vero consectetur sed. Sit voluptates aperiam praesentium
+            at eaque.</p>
+        <img src="images/redFlower.jpeg" class="headerImage" />
+    </div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt saepe quisquam voluptatem rem repellendus
+        placeat, fuga natus laudantium et blanditiis earum optio aut odit, iste sint tenetur necessitatibus nesciunt
+        sequi.</div>
+    <div class="lowerDIV" >
+        <div >
+                <img src="images/redFlower.jpeg" class="lowerImage"  />
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem sint in suscipit
+                    voluptas non
+                    reiciendis eum inventore. Quod, maxime non. Porro vero consectetur sed. Sit voluptates aperiam
+                    praesentium at eaque.</p>
+        </div>
+        <div >
+                <img src="images/redFlower.jpeg" class="lowerImage" />
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem sint in suscipit
+                    voluptas non
+                    reiciendis eum inventore. Quod, maxime non. Porro vero consectetur sed. Sit voluptates aperiam
+                    praesentium at eaque.</p>
+        </div>
+        <div >
+                <img src="images/redFlower.jpeg" class="lowerImage"/>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem sint in suscipit
+                    voluptas non
+                    reiciendis eum inventore. Quod, maxime non. Porro vero consectetur sed. Sit voluptates aperiam
+                    praesentium at eaque.</p>
+        </div>
+        <div >
+            <img src="images/redFlower.jpeg" class="lowerImage"/>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem sint in suscipit
+                voluptas non
+                reiciendis eum inventore. Quod, maxime non. Porro vero consectetur sed. Sit voluptates aperiam
+                praesentium at eaque. </p>
+    </div>
+    </div>
+
+      <button id="back">
+        <a href="index.html" style="border-radius: 4px; padding: 11px 15px"
+          >Back</a
+        >
+      </button>
+</body>
+
+</html>

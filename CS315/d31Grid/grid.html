@@ -13,8 +13,7 @@
             display: grid;
             background-color: black;
             border: 7px solid silver;
-            
-           
+                
         }
 
         .gridBox {
@@ -29,6 +28,8 @@
         .flexBox { 
             display: flex;         
             justify-content: space-between;
+            padding-bottom: 20px;
+            
             
         }
 
@@ -36,17 +37,38 @@
             display: flex;
             width: 45%;
             justify-content: space-around;
+            color: white;
             padding-left: 85px;
-            
-          
+           
         }
+        .innerFlex a{
+            color: white;
+            text-decoration: none;
+        }
+        .innerFlex:hover{
+            font-size: 20px;
+        }
+        .innerFlex2{
+            display: flex;
+            margin-right: 80px;
+
+        
+        }
+        .innerFlex2 a{
+            color: white;
+            text-decoration: none;
+           
+        }
+     
 
         .roundBox {
             display: flex;
             border: 1px solid gray;
             background-color: rgba(128, 128, 128, 0.705);
             border-radius: 50px;
-            justify-content: space-between;
+            color: aliceblue;
+            
+            /* justify-content: space-between; */
     
         }
 
@@ -54,6 +76,7 @@
             background-color: orange;
             border-radius: 50px;
             padding: 5px 20px;
+            margin-right: -75px;
         }
 
         label,
@@ -91,7 +114,21 @@
         .box{
             background-color: black;
         }
-       
+       @media screen and (max-width: 400px){
+           body{
+               background-color: aquamarine;
+           }
+       }
+        @media screen and (min-width: 400px) and (max-width:650px){
+           body{
+               background-color: brown;
+           }
+       }
+        @media screen and (min-width: 650px){
+           body{
+               background-color: rgb(227, 255, 127);
+           }
+       }
        
         
     </style>
@@ -124,8 +161,9 @@
                
                 <br>
                 <div class="roundBox">
-                    <label class="sendEmail">Enter your e-mail</label>
-                    <label class="sendBox">Send</label>
+                    <input type="email" placeholder="Enter your e-mail" style="border-radius: 50px;  width: 100%;">
+                   <button class="sendBox" style="position: relative; right: 75px;">Send</button>
+                   
                 </div>
 
             </div>
@@ -171,14 +209,17 @@
         <p> <hr style="margin:0px 80px"> </p>
         <div class="flexBox">
             <div class="innerFlex">
-                <p>Home</p>
-                <p>About</p>
-                <p>Our works</p>
-                <p>Services</p>
-                <p>Blog</p>
-                <p>Contacts</p>
+                    <a href="">Home</a>
+                    <a href="">About</a>
+                    <a href="">Our Works</a>
+                    <a href="">Services</a>
+                    <a href="">Blog</a>
+                    <a href="">Contacts</a>   
             </div>
-            <p style="padding-right: 130px;">Colorlib</p>
+            <div class="innerFlex2">
+                <a href="">Colorlib</a>
+            </div>
+           
         </div>
     </div> 
 

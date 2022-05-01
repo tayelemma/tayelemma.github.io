@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: auto;
+            background: black;
+        }
+        .main{
+            width: 80%;
+            margin: auto;
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="main">
+    <h1>Final Exam: Part-II</h1>
+
+    <pre>
+
+        "use strict";
+/*eslint-disable */
+
+
+
+
+let simpleObject = { a: 1, b: [1, 2], c: { d: 2 } };
+let json = {
+    "glossary":
+    {
+        "title": "example glossary",
+        "GlossSeeAlso": {
+            "title": "S",
+            "GlossList":
+            {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "Acronym":
+                        "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML", "S"]
+                    },
+                    "GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+
+
+/**
+ * You can use this simple object in the initial phase
+
+let json2 = {a:1,b:{c:2},d:[1,2]}
+
+Create a function that reverses the keys and values i.e. keys become values and values becomes keys except if the value is an object.
+
+1. If value is object, then result json should have 'object' as value.
+
+Eg: glossary: 'object'
+
+2. If value is array, then result json should have concatenated values of array as key 
+
+Eg: GMLXMLS: 'GlossSeeAlso',
+
+3. If value is neither object nor array, the value should be key and key should be value. 
+
+Eg:  SGML: 'Acronym',
+ * 
+ * 
+ * Eg:  SGML: 'Acronym',
+
+reverseJson(json) =>
+{
+  glossary: 'object',
+  'example glossary': 'title',
+  GlossSeeAlso: 'object',
+  S: 'title',
+  GlossList: 'object',
+  GlossEntry: 'object',
+  SGML: 'Acronym',
+  'ISO 8879:1986': 'Abbrev',
+  GlossDef: 'object',
+  'A meta-markup language, used to create markup languages such as DocBook.': 'para',
+  GMLXMLS: 'GlossSeeAlso',
+  markup: 'GlossSee'
+}
+
+
+ */
+function reverse(obj) {
+    let reverseObj = {};
+    for (let key in obj) {
+        let value = obj[key];
+        if (!Array.isArray(value) && typeof value == 'object') {
+            reverseObj[key] = "object";
+            let newObj = reverse(value);
+            for (let newKey in newObj) {
+                reverseObj[newKey] = newObj[newKey];
+            }
+        }
+        else if (Array.isArray(value)) {
+            let result = value.reduce(function (prev, current) {
+                return prev + current;
+            })
+            reverseObj[result] = key;
+        } else
+            reverseObj[value] = key;
+    }
+    return reverseObj
+}
+console.log("Reverse the json ************", reverse(json));
+
+// return number of leaf nodes
+function countLeaves(obj) {
+    let count = 0;
+    for (let key in obj) {
+        let value = obj[key];
+        if (typeof value != "object" || Array.isArray(value))
+            count++;
+        else
+            count += countLeaves(value)
+    }
+    return count;
+}
+console.log("Count leaves in json ************", countLeaves(json));
+
+
+function TreeNode(value) {
+    this.value = value;
+    this.descendents = [];
+}
+// create nodes with values
+const abe = new TreeNode('Abe');
+const homer = new TreeNode('Homer');
+const bart = new TreeNode('Bart');
+const lisa = new TreeNode('Lisa');
+const maggie = new TreeNode('Maggie');
+// associate root with is descendents
+abe.descendents.push(homer);
+homer.descendents.push(bart, lisa, maggie);
+
+const flowers = new TreeNode('flowers');
+const subtropicalFlowers = new TreeNode('subtropicalFlowers');
+const temperateFlowers = new TreeNode('temperateFlowers');
+const bouganvillea = new TreeNode('bougainvillea');
+const roses = new TreeNode('roses');
+const daffodils = new TreeNode('daffodils');
+
+// associate root with is descendents
+flowers.descendents.push(subtropicalFlowers);
+flowers.descendents.push(temperateFlowers);
+subtropicalFlowers.descendents.push(bouganvillea);
+temperateFlowers.descendents.push(roses);
+temperateFlowers.descendents.push(daffodils);
+
+/*
+
+1.  Write a function to return an object Array that gives the node names and children count like below.
+[
+    { name: 'flowers', children: 2 },
+    { name: 'subtropicalFlowers', children: 1 },
+    { name: 'bougainvillea', children: 0 },
+    { name: 'temperateFlowers', children: 2 },
+    { name: 'roses', children: 0 },
+    { name: 'daffodils', children: 0 }
+]
+
+*/
+
+function flattenTree(root) {
+    let myArray = [{ name: root.value, children: root.descendents.length }];
+    for (let child of root.descendents) {
+        myArray = myArray.concat(flattenTree(child))
+    }
+    return myArray;
+}
+
+
+/**
+[Extra Credit] [2]
+
+Count the number of leaf nodes in the above json, i.e. keys whose value is object(not array).
+countLeaves(json)=> 8
+ */
+
+
+function countLeavesInTree(root) {
+    if (root.descendents.length == 0)
+        return 1;
+    let count = 0;
+    for (let child of root.descendents) {
+        count += countLeavesInTree(child)
+    }
+    return count;
+}
+console.log("Tree with Children*********", flattenTree(flowers));
+console.log("Number of Leaves in Tree *******", countLeavesInTree(flowers))
+
+
+    </pre>
+</div>
+  <button id="back">
+        <a href="index.html" style="border-radius: 4px; padding: 11px 15px"
+          >Back</a
+        >
+      </button>
+</body>
+</html>
